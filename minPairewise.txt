@@ -1,0 +1,79 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define endl '\n'
+
+void init(){
+    cin.tie(0);
+    cin.sync_with_stdio(0);
+}
+
+// bool isPrime(ll n) {
+//     for(int i = 2;i < n/2;i++) {
+//         if(n % i == 0) return false;
+//     }
+//     return true;
+// }
+
+// bool isPrimeBetter(ll n) {
+//     for(int i = 2;i * i < n;i++) {
+//         if(n % i == 0) return false;
+//     }
+//     return true;
+// }
+
+// int minimum(int x, int y) {
+//     if(x < y) return x;
+//     return y;
+// }
+
+
+//ll prefix_sum[100000];
+
+ll minPairwise(ll a[],int n){
+    
+    int minIndex, secMin;
+    int minimum = INT_MAX;
+    int secMinimum = INT_MAX;
+    for(int i = 0;i < n;i++){
+            if(a[i] < minimum) {
+                minimum = a[i];
+                minIndex = i;
+            }
+        }
+
+        for(int i = 0;i < n;i++){
+            if(i != minIndex && a[i] < secMinimum) {
+                secMinimum = a[i];
+                secMin = i;
+            }
+        }
+
+
+        for(int i = 0;i < n;i++){
+            for(int j = 0;j < n;j++){
+                if(a[i] < a[j]) swap(a[i], a[j]);
+            }
+        }
+        
+        if(secMin > minIndex) return a[0] + a[1] + secMin - minIndex;
+        return a[0] + a[1] + minIndex - secMin;
+}
+
+int main(){
+    init();
+
+    int numberOfTests;
+    cin >> numberOfTests;
+    
+
+    for(int z = 0;z < numberOfTests;z++){
+        int n;
+        cin >> n;
+        ll a[n];
+        for(int i = 0;i < n;i++) cin >> a[i];
+        cout << minPairwise(a, n) << endl;
+    }
+    
+    return 0;
+} 

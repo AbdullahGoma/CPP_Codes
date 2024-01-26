@@ -1,0 +1,316 @@
+Prime Number
+#include <iostream>
+
+using namespace std;
+
+int main(){
+    
+    int n,i,j;
+    cout<<"Enter n of number :"<<endl;
+    cin>>n;
+    for(i=2;i<=n;i++){
+        for(j=2;j<i;j++){
+            if(i%j==0){
+                break;
+            }
+        }  
+        if(j==i){
+            cout<<j<<"  ";
+        }
+    }
+
+    return 0;
+}
+............................................................
+#include <iostream>
+
+using namespace std;
+
+int main(){
+    
+    int n,i,j,count=0;
+    cout<<"Enter n of number :"<<endl;
+    cin>>n;
+    for(i=2;i<=n;i++){
+        for(j=2;j<i;j++){
+            if(i%j==0){
+                break;
+            }
+        }  
+        if(j==i){
+            count++;
+            cout<<"The "<<count<<"th number is : "<<j<<endl;
+        }
+    }
+
+
+    return 0;
+}
+..................................................................
+#include <iostream>
+
+using namespace std;
+
+int main(){
+    
+    int n,i;
+    cout<<"Enter a number :"<<endl;
+    cin>>n;
+    for(i=2;i<n;i++){
+        if(n%i==0){
+            break;
+        }
+    }
+    if(n==i){
+        cout<<"Prime number"<<endl;
+    }else{
+    cout<<"Not prime number"<<endl;
+    }
+
+
+    return 0;
+}
+.......................................................................
+Semi colon --> After exclusive statement"Statement excute something".
+.......................................................................
+Any loop inside it "breake" --> must be after it "if statement".
+..........................................................................
+for --> تكرارات معلومة العدد
+while --> تكرارات معلومة الشرط
+.........................................................................
+#include <iostream>
+
+using namespace std;
+
+int main(){
+    
+    int n,i,sum = 0;
+    cout<<"Enter a number :"<<endl;
+    cin>>n;
+    while(n != 0){
+        sum = sum + n%10;
+        n = n/10;
+    }
+    cout<<"Summition is :"<<sum<<endl;
+    return 0;
+}
+...............................................................................
+#include <iostream>
+
+using namespace std;
+
+int main(){
+    
+    int n,i,sum = 0;
+    cout<<"Enter a number :"<<endl;
+    cin>>n;
+    while(n != 0){
+        sum = sum*10 + n%10;
+        n = n/10;
+    }
+    cout<<"New number is :"<<sum<<endl;
+    return 0;
+}
+.......................................................................................
+#include <iostream>
+
+using namespace std;
+
+int main(){
+    
+    int n,i,sum = 0;
+    cout<<"Enter a number :"<<endl;
+    cin>>n;
+    int z = n;
+    while(n != 0){
+        sum = sum*10 + n%10;
+        n = n/10;
+    }
+    if(z==sum){
+        cout<<"Number is palanomial"<<endl;
+    }else{
+        cout<<"Not palanomial"<<endl;
+    }
+    return 0;  
+}
+..........................................................................
+Armstrong Number?
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main(){
+    
+    int n,i,sum = 0;
+    float count = 0;
+    cout<<"Enter a number :"<<endl;
+    cin>>n;
+    int z = n;
+    int k = n;
+    while(n != 0){
+        count++;
+        n = n/10;
+    }
+    while(z != 0){
+        float d = z%10;
+        sum = sum + pow(d,count);
+        z = z/10;
+    }
+    if(k == sum){
+        cout<<"Armstrong Number"<<endl;
+    }else{
+        cout<<"Not Armstrong Number"<<endl;
+    }
+    
+    return 0;  
+}
+........................................................................
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main(){
+    
+    float a,b,c,d;
+    cout<<"Enter 4 numbers :"<<endl;
+    cin>>a>>b>>c>>d;
+    if(c==d){
+        cout<<"Not defind"<<endl;
+    }else{
+        cout<<"Number is :"<<(a+b)/(c-d)<<endl;
+    }
+    
+    
+    return 0;  
+}
+...........................................................................
+Degree:
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main(){
+    
+    int n,m;
+    cout<<"Enter Your Degree :"<<endl;
+    cin>>n;
+    if(n > 100 or n < 0){
+        cout<<"Not valid"<<endl;
+    }else{
+        if(n >= 85){
+            cout<<"A"<<endl;
+        }else if(n >= 75){
+            cout<<"B"<<endl;
+        }else if(n >= 65){
+            cout<<"C"<<endl;
+        }else if(n >= 60){
+            cout<<"D"<<endl;
+        }else{
+            cout<<"F"<<endl;
+        }
+    }
+    
+    return 0;  
+}
+
+..............................................................
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+bool Isprime(int number){
+    bool prime = true;
+    for(int i = 2;i<number;i++){
+        if(number%i == 0){
+            prime = false;
+            break;
+        }
+    }
+    return prime;
+}
+int main(){
+    bool prime = true;
+    int n,counter = 0;
+    cout<<"Enter a number to check numbers before it is prime or not : "<<endl;
+    cin>>n;
+    for(int i = 2 ; i < n ; i++){
+        bool isprime;
+        isprime = Isprime(i);
+        if(isprime == true){
+            cout<<i<<" is prime number."<<endl;
+            counter++;
+        }else{
+            cout<<i<<" is not prime number."<<endl;
+        }
+    }
+    cout<<"Number of prime numbers is :"<<counter<<endl;
+    return 0;  
+}
+.....................................................................
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+void swaap(char & a,char & b)
+{
+    char t;
+    t=a;
+    a=b;
+    b=t;
+
+}
+int main(){
+    string num;
+    cout << "enter number : \n";
+    cin >> num;
+    for (int i=0,j=num.length()-1;i<j;i++,j--)
+    {
+        swap(num[i],num[j]);
+    }
+    cout << num;
+
+    return 0;  
+}
+..............................................
+#include <iostream>
+
+using namespace std;
+void swaap(int & x,int & y)
+{
+    int t;
+    t=x;
+    x=y;
+    y=t;
+}
+
+int main(){
+    int x=7,y=5;
+    swaap(x,y);
+    cout <<"x="<<x<<"y= "<<y;
+    return 0;  
+}
+.......................................................
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
